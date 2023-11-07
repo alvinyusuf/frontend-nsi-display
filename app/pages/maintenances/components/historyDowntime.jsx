@@ -18,14 +18,15 @@ export default async function HistoryDowntime() {
         {data.map((element) => {
           const bg = parseFloat(element.percentDowntime) <= 70 ? 'bg-[#05A305]' : (parseFloat(element.percentDowntime) > 70) && (parseFloat(element.percentDowntime) <= 90) ? 'bg-[#FF9900]' : 'bg-[#FF0000]'
           const border = parseFloat(element.percentDowntime) <= 70 ? 'border-[#05A305]' : (parseFloat(element.percentDowntime) > 70) && (parseFloat(element.percentDowntime) <= 90) ? 'border-[#FF9900]' : 'border-[#FF0000]'
+          const titleFont = 'text-[20px]'
+          const valueFont = 'text-[40px]'
           return (
           <SideTitleCard
             key={element.percentDowntime}
             value={element.percentDowntime}
             title={element.bulanDowntime}
-            tFont='20' vFont='40'
-            bg={bg}
-            border={border}
+            tFont={titleFont} vFont={valueFont}
+            bg={bg} border={border}
           />
         )})}
       </div>

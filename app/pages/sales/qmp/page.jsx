@@ -36,18 +36,18 @@ export default async function Qmp() {
         <TopTitleCard title='Aktual Tahunan' value={`${USDollar.format(total)}`} bg={bgMain} border={borderMain} />
       </div>
       <div className="grid grid-cols-4 gap-[30px] p-[15px] w-full h-full">
-        <TopTitleCard title='JANUARI' value='98.00' bg={bgComponent} border={borderComponent} />
-        <TopTitleCard title='FEBRUARI' value='98.00' bg={bgComponent} border={borderComponent} />
-        <TopTitleCard title='MARET' value='98.00' bg={bgComponent} border={borderComponent} />
-        <TopTitleCard title='APRIL' value='98.00' bg={bgComponent} border={borderComponent} />
-        <TopTitleCard title='MEI' value='98.00' bg={bgComponent} border={borderComponent} />
-        <TopTitleCard title='JUNI' value='98.00' bg={bgComponent} border={borderComponent} />
-        <TopTitleCard title='JULI' value='98.00' bg={bgComponent} border={borderComponent} />
-        <TopTitleCard title='AGUSTUS' value='98.00' bg={bgComponent} border={borderComponent} />
-        <TopTitleCard title='SEPTEMBER' value='98.00' bg={bgComponent} border={borderComponent} />
-        <TopTitleCard title='OKTOBER' value='98.00' bg={bgComponent} border={borderComponent} />
-        <TopTitleCard title='NOVEMBER' value='98.00' bg={bgComponent} border={borderComponent} />
-        <TopTitleCard title='DESEMBER' value='98.00' bg={bgComponent} border={borderComponent} />
+        <TopTitleCard title='JANUARI' value='98.00 %' bg={bgComponent} border={borderComponent} />
+        <TopTitleCard title='FEBRUARI' value='98.00 %' bg={bgComponent} border={borderComponent} />
+        <TopTitleCard title='MARET' value='98.00 %' bg={bgComponent} border={borderComponent} />
+        <TopTitleCard title='APRIL' value='98.00 %' bg={bgComponent} border={borderComponent} />
+        <TopTitleCard title='MEI' value='98.00 %' bg={bgComponent} border={borderComponent} />
+        <TopTitleCard title='JUNI' value='98.00 %' bg={bgComponent} border={borderComponent} />
+        <TopTitleCard title='JULI' value='98.00 %' bg={bgComponent} border={borderComponent} />
+        <TopTitleCard title='AGUSTUS' value='98.00 %' bg={bgComponent} border={borderComponent} />
+        <TopTitleCard title='SEPTEMBER' value='98.00 %' bg={bgComponent} border={borderComponent} />
+        <TopTitleCard title='OKTOBER' value='98.00 %' bg={bgComponent} border={borderComponent} />
+        <TopTitleCard title='NOVEMBER' value='98.00 %' bg={bgComponent} border={borderComponent} />
+        <TopTitleCard title='DESEMBER' value='98.00 %' bg={bgComponent} border={borderComponent} />
       </div>
     </div>
   );

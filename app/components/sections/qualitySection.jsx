@@ -8,7 +8,7 @@ import Link from 'next/link'
 export default function QualitySection({ value }) {
 
   return (
-    <Link href="/pages/qualities" className="w-full" prefetch={false}>
+    <Link href="/pages/qualities" className="w-full h-full" prefetch={false}>
       <div className="col h-full rounded-lg bg-[#D9D9D9] p-3 flex flex-col gap-8">
         <HeaderSection name='QUALITY' />
         <div className="col h-full flex gap-3">

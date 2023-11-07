@@ -14,9 +14,9 @@ export default function MaintenanceSection({ value }) {
     <div className="w-[400px] rounded-[8px] bg-[#D9D9D9] p-[10px] flex flex-col gap-[38px] h-full">
       <HeaderSection name='MAINTENANCE' />
       <div className="col h-full flex flex-col gap-6">
-        <TopTitleCard value={currentMonth} title='BULAN INI' bg={bgCurrent} border={borderCurrent} />
-        <TopTitleCard value={lastMonth} title='1 BULAN LALU' bg={bgLast} border={borderLast} />
-        <TopTitleCard value={beforeLastMonth} title='2 BULAN LALU' bg={bgBefore} border={borderBefore} />
+        <TopTitleCard value={`${currentMonth} %`} title='BULAN INI' bg={bgCurrent} border={borderCurrent} />
+        <TopTitleCard value={`${lastMonth} %`} title='1 BULAN LALU' bg={bgLast} border={borderLast} />
+        <TopTitleCard value={`${beforeLastMonth} %`} title='2 BULAN LALU' bg={bgBefore} border={borderBefore} />
       </div>
     </div>
   )

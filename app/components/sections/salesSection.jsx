@@ -24,10 +24,10 @@ export default function SalesSection({ value }) {
       <HeaderSection name='SALES' />
       <div className="col h-full flex gap-6">
         <Link href="/pages/sales/qmp" className='w-full' prefetch={false}>
-          <TopTitleCard value={resultQmp} title='QMP' bg={bgQmp} border={borderQmp} />
+          <TopTitleCard value={`${resultQmp} %`} title='QMP' bg={bgQmp} border={borderQmp} />
         </Link>
         <Link href="/pages/sales/monthly" className='w-full' prefetch={false}>
-          <TopTitleCard value={resultMonthly} title='MONTHLY' bg={bgMonthly} border={borderMonthly} />
+          <TopTitleCard value={`${resultMonthly} %`} title='MONTHLY' bg={bgMonthly} border={borderMonthly} />
         </Link>
       </div>
     </div>
