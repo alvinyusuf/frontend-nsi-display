@@ -12,9 +12,9 @@ export default async function Production() {
         <div className="col h-full flex flex-col gap-1">
           <div className='col h-[80px] flex flex-row rounded bg-[#9DA5EE] justify-center'>
             <div className="basis-1/5 flex justify-center items-center h-full text-[48px]">CAM</div>
-            <div className="basis-1/5 flex justify-center items-center h-full text-[48px]">CNC 1</div>
-            <div className="basis-1/5 flex justify-center items-center h-full text-[48px]">CNC 2</div>
-            <div className="basis-1/5 flex justify-center items-center h-full text-[48px]">CNC 3</div>
+            <div className="basis-1/5 flex justify-center items-center h-full text-[48px]">LINE 1</div>
+            <div className="basis-1/5 flex justify-center items-center h-full text-[48px]">LINE 2</div>
+            <div className="basis-1/5 flex justify-center items-center h-full text-[48px]">LINE 3</div>
             <div className="basis-1/5 flex justify-center items-center h-full text-[48px]">TGL</div>
           </div>
           <div className="col h-[730px] overflow-y-auto">
