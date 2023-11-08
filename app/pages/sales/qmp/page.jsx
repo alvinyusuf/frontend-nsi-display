@@ -14,8 +14,23 @@ async function getAktualTahunan() {
   return res.json();
 }
 
+async function getListMonthly() {
+  const res = await fetch("http://192.168.10.75:5000/api/sales/get-actual/detail", {
+    next: {
+      revalidate: 0,
+    },
+  });
+  if (!res.ok) {
+    throw new Error("Failed fetch data!");
+  }
+  return res.json();
+}
+
 export default async function Qmp() {
   const dataApi = await getAktualTahunan()
+  const dataList = await getListMonthly()
+  const lists = dataList.payload.data
+
   const data = dataApi.payload.data.totalUSDSales
   const total = data.toFixed(2)
 
@@ -36,7 +51,12 @@ export default async function Qmp() {
         <TopTitleCard title='Aktual Tahunan' value={`${USDollar.format(total)}`} bg={bgMain} border={borderMain} />
       </div>
       <div className="grid grid-cols-4 gap-[30px] p-[15px] w-full h-full">
-        <TopTitleCard title='JANUARI' value='98.00 %' bg={bgComponent} border={borderComponent} />
+        {lists.map((element) => {
+          return (
+            <TopTitleCard key={element.bulan} title={element.bulan} value={USDollar.format(element.totalUSDPrice)} bg={bgComponent} border={borderComponent} />
+          )
+        })}
+        {/* <TopTitleCard title='JANUARI' value='98.00 %' bg={bgComponent} border={borderComponent} />
         <TopTitleCard title='FEBRUARI' value='98.00 %' bg={bgComponent} border={borderComponent} />
         <TopTitleCard title='MARET' value='98.00 %' bg={bgComponent} border={borderComponent} />
         <TopTitleCard title='APRIL' value='98.00 %' bg={bgComponent} border={borderComponent} />
@@ -47,7 +67,7 @@ export default async function Qmp() {
         <TopTitleCard title='SEPTEMBER' value='98.00 %' bg={bgComponent} border={borderComponent} />
         <TopTitleCard title='OKTOBER' value='98.00 %' bg={bgComponent} border={borderComponent} />
         <TopTitleCard title='NOVEMBER' value='98.00 %' bg={bgComponent} border={borderComponent} />
-        <TopTitleCard title='DESEMBER' value='98.00 %' bg={bgComponent} border={borderComponent} />
+        <TopTitleCard title='DESEMBER' value='98.00 %' bg={bgComponent} border={borderComponent} /> */}
       </div>
     </div>
   );
