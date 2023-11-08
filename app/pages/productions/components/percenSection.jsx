@@ -23,7 +23,7 @@ export default async function PercenSection() {
       <HeaderSection name='PRODUCTION' />
       <div className="col h-full flex flex-col gap-6">
         {data.map((element) => {
-          const bg = element.LineType == 'CAM' ? element.RataRata <= 60 ? 'bg-[#FF0000]' : cam > 60 && cam <= 80 ? 'bg-[#FF9900]' : 'bg-[#05A305]' : element.RataRata <= 70 ? 'bg-[#FF0000]' : cam > 70 && cam <= 85 ? 'bg-[#FF9900]' : 'bg-[#05A305]'
+          const bg = element.LineType == 'CAM' ? element.RataRata <= 60 ? 'bg-[#FF0000]' : element.RataRata > 60 && element.RataRata <= 80 ? 'bg-[#FF9900]' : 'bg-[#05A305]' : element.RataRata <= 70 ? 'bg-[#FF0000]' : element.RataRata > 70 && element.RataRata <= 85 ? 'bg-[#FF9900]' : 'bg-[#05A305]'
           return (
             <Link key={element.LineType} className="h-full"
               href={{
