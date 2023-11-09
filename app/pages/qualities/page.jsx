@@ -5,7 +5,6 @@ import React from "react";
 export default async function Quality() {
   const data = await getDataQuality();
   const value = data[0];
-  console.log(value);
   return (
     <>
       <div className="flex flex-col gap-[20px] m-[20px] w-full h-full">
