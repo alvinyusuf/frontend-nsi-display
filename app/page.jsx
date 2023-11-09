@@ -40,8 +40,32 @@ export default function Home() {
     },
   ]
 
+  const defaultQuality =  [
+    {
+      target_cam_ipqc: 1,
+      target_cnc_ipqc: 1,
+      target_mfg_ipqc: 1,
+      target_cam_oqc: 1,
+      target_cnc_oqc: 1,
+      target_mfg_oqc: 1,
+      ncr_cam_ipqc: 0,
+      lot_cam_ipqc: 0,
+      ncr_cnc_ipqc: 0,
+      lot_cnc_ipqc: 0,
+      ncr_mfg_ipqc: 0,
+      lot_mfg_ipqc: 0,
+      ncr_cam_oqc: 0,
+      lot_cam_oqc: 0,
+      ncr_cnc_oqc: 0,
+      lot_cnc_oqc: 0,
+      ncr_mfg_oqc: 0,
+      lot_mfg_oqc: 0,
+      date: "2023-11-01"
+    }
+  ]
+
   const [downtime, setDowntime] = useState(0)
-  const [quality, setQuality] = useState({percentCamIpqc: 0.001, percentCncIpqc: 0.001, percentMfgIpqc: 0.001, percentCamOqc: 0.001, percentCncOqc: 0.001, percentMfgOqc: 0.001})
+  const [quality, setQuality] = useState(defaultQuality)
   const [defaultDowntime1, setDefaultDowntime1] = useState(0)
   const [defaultDowntime2, setDefaultDowntime2] = useState(0)
   const [production, setProduction] = useState(defaultProd)
@@ -58,7 +82,6 @@ export default function Home() {
       totalAktualUSD: null,
     }
   ])
-  // const [monthly, setMonthly] = useState(0.00)
 
   useEffect(() => {
     getCurrentDowntime().then((downtime) => setDowntime(downtime))

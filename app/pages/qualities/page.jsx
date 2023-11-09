@@ -1,20 +1,11 @@
 import HeaderSection from "@/app/components/header/sectionHeader";
+import getDataQuality from "@/app/functions/getDataQuality";
 import React from "react";
 
-// async function getDataQualities() {
-//   const res = await fetch("", {
-//     next: {
-//       revalidate: 0,
-//     },
-//   });
-//   if (!res.ok) {
-//     throw new Error("failed to fetch data");
-//   }
-//   return res.json;
-// }
-
 export default async function Quality() {
-  // const dataApi = await getDataQualities;
+  const data = await getDataQuality();
+  const value = data[0];
+  console.log(value);
   return (
     <>
       <div className="flex flex-col gap-[20px] m-[20px] w-full h-full">
@@ -34,24 +25,24 @@ export default async function Quality() {
               <tbody>
                 <tr>
                   <td className="border border-slate-300">CAM</td>
-                  <td className="border border-slate-300">6</td>
-                  <td className="border border-slate-300">1</td>
-                  <td className="border border-slate-300">3</td>
-                  <td className="border border-slate-300">4</td>
+                  <td className="border border-slate-300">{value.target_cam_ipqc}</td>
+                  <td className="border border-slate-300">{value.ncr_cam_ipqc}</td>
+                  <td className="border border-slate-300">{value.lot_cam_ipqc}</td>
+                  <td className="border border-slate-300">{value.ncr_cam_ipqc + value.lot_cam_ipqc}</td>
                 </tr>
                 <tr>
                   <td className="border border-slate-300">CNC</td>
-                  <td className="border border-slate-300">12</td>
-                  <td className="border border-slate-300">1</td>
-                  <td className="border border-slate-300">3</td>
-                  <td className="border border-slate-300">4</td>
+                  <td className="border border-slate-300">{value.target_cnc_ipqc}</td>
+                  <td className="border border-slate-300">{value.ncr_cnc_ipqc}</td>
+                  <td className="border border-slate-300">{value.lot_cnc_ipqc}</td>
+                  <td className="border border-slate-300">{value.ncr_cnc_ipqc + value.lot_cnc_ipqc}</td>
                 </tr>
                 <tr>
                   <td className="border border-slate-300">MFG2</td>
-                  <td className="border border-slate-300">5</td>
-                  <td className="border border-slate-300">1</td>
-                  <td className="border border-slate-300">3</td>
-                  <td className="border border-slate-300">4</td>
+                  <td className="border border-slate-300">{value.target_mfg_ipqc}</td>
+                  <td className="border border-slate-300">{value.ncr_mfg_ipqc}</td>
+                  <td className="border border-slate-300">{value.lot_mfg_ipqc}</td>
+                  <td className="border border-slate-300">{value.ncr_mfg_ipqc + value.lot_mfg_ipqc}</td>
                 </tr>
               </tbody>
             </table>
@@ -73,24 +64,24 @@ export default async function Quality() {
               <tbody>
                 <tr>
                   <td className="border border-slate-300">CAM</td>
-                  <td className="border border-slate-300">7</td>
-                  <td className="border border-slate-300">1</td>
-                  <td className="border border-slate-300">3</td>
-                  <td className="border border-slate-300">4</td>
+                  <td className="border border-slate-300">{value.target_cam_oqc}</td>
+                  <td className="border border-slate-300">{value.ncr_cam_oqc}</td>
+                  <td className="border border-slate-300">{value.lot_cam_oqc}</td>
+                  <td className="border border-slate-300">{value.ncr_cam_oqc + value.lot_cam_oqc}</td>
                 </tr>
                 <tr>
                   <td className="border border-slate-300">CNC</td>
-                  <td className="border border-slate-300">6</td>
-                  <td className="border border-slate-300">1</td>
-                  <td className="border border-slate-300">3</td>
-                  <td className="border border-slate-300">4</td>
+                  <td className="border border-slate-300">{value.target_cnc_oqc}</td>
+                  <td className="border border-slate-300">{value.ncr_cnc_oqc}</td>
+                  <td className="border border-slate-300">{value.lot_cnc_oqc}</td>
+                  <td className="border border-slate-300">{value.ncr_cnc_oqc + value.lot_cnc_oqc}</td>
                 </tr>
                 <tr>
                   <td className="border border-slate-300">MFG2</td>
-                  <td className="border border-slate-300">5</td>
-                  <td className="border border-slate-300">1</td>
-                  <td className="border border-slate-300">3</td>
-                  <td className="border border-slate-300">4</td>
+                  <td className="border border-slate-300">{value.target_mfg_oqc}</td>
+                  <td className="border border-slate-300">{value.ncr_mfg_oqc}</td>
+                  <td className="border border-slate-300">{value.lot_mfg_oqc}</td>
+                  <td className="border border-slate-300">{value.ncr_mfg_oqc + value.lot_mfg_oqc}</td>
                 </tr>
               </tbody>
             </table>

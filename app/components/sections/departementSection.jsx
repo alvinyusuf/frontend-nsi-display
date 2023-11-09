@@ -2,19 +2,21 @@
 
 import HeaderSection from '@/app/components/header/sectionHeader'
 import SideTitleCard from '../cards/sideTitleCard'
+import getPercenQuality from '@/app/functions/getPercenQuality';
 
 export default function DepartementSection({ departement, value }) {
+  const data = getPercenQuality(value)
   let percentCam;
   let percentCnc;
   let percentMfg;
   if (departement === 'IPQC') {
-    percentCam = value.percentCamIpqc
-    percentCnc = value.percentCncIpqc
-    percentMfg = value.percentMfgIpqc
+    percentCam = data.percentCamIpqc
+    percentCnc = data.percentCncIpqc
+    percentMfg = data.percentMfgIpqc
   } else {
-    percentCam = value.percentCamOqc
-    percentCnc = value.percentCncOqc
-    percentMfg = value.percentMfgOqc
+    percentCam = data.percentCamOqc
+    percentCnc = data.percentCncOqc
+    percentMfg = data.percentMfgOqc
   }
 
   const bgCam = parseFloat(percentCam) <= 70 ? 'bg-[#05A305]' : (parseFloat(percentCam) > 70) && (parseFloat(percentCam) <= 90) ? 'bg-[#FF9900]' : 'bg-[#FF0000]'
@@ -31,7 +33,7 @@ export default function DepartementSection({ departement, value }) {
     <div className="basis-1/2 h-full flex flex-col gap-3 border border-black p-2 rounded-sm">
       <HeaderSection name={departement} />
       <div className="col h-full flex flex-col gap-3">
-        <SideTitleCard value={percentCam} title='CAM' tFont={titleFont} vFont={valueFont} type='main' bg={bgCam} border={borderCnc} />
+        <SideTitleCard value={percentCam} title='CAM' tFont={titleFont} vFont={valueFont} type='main' bg={bgCam} border={borderCam} />
         <SideTitleCard value={percentCnc} title='CNC' tFont={titleFont} vFont={valueFont} type='main' bg={bgCnc} border={borderCnc} />
         <SideTitleCard value={percentMfg} title='MFG' tFont={titleFont} vFont={valueFont} type='main' bg={bgMfg} border={borderMfg} />
       </div>
