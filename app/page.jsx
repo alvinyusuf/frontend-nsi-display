@@ -19,22 +19,22 @@ const socket = io('http://192.168.10.75:5000')
 export default function Home() {
   const defaultProd = [
     {
-      PostDate: new Date(),
+      PostDate: '2023-11-13T00:34:06.956Z',
       LineType: 'CAM',
       RataRata: 0,
     },
     {
-      PostDate: new Date(),
+      PostDate: '2023-11-13T00:34:06.956Z',
       LineType: 'LINE1',
       RataRata: 0,
     },
     {
-      PostDate: new Date(),
+      PostDate: '2023-11-13T00:34:06.956Z',
       LineType: 'LINE2',
       RataRata: 0
     },
     {
-      PostDate: new Date(),
+      PostDate: '2023-11-13T00:34:06.956Z',
       LineType: 'LINE3',
       RataRata: 0,
     },

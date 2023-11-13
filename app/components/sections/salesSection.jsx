@@ -5,12 +5,14 @@ import HeaderSection from "../header/sectionHeader";
 import TopTitleCard from "../cards/topTitleCard";
 import getDataMonthly from "@/app/functions/getDataMonthly";
 import { useState } from "react";
+import getDataTarget from "@/app/functions/getDataTarget";
 
 export default function SalesSection({ value }) {
   const { qmp, monthly } = value;
-  const limit = 20000000
-  const resultQmp = ((qmp / limit) * 100).toFixed(2)
+  const [limit, setLimit] = useState(20000000);
   const [dataMonthly, setDataMonthly] = useState(0);
+  getDataTarget().then((data) => setLimit(data.qmp));
+  const resultQmp = ((qmp / limit) * 100).toFixed(2)
   getDataMonthly(monthly).then((data) => setDataMonthly(data));
   const resultMonthly = (dataMonthly).toFixed(2);
 
@@ -24,9 +26,7 @@ export default function SalesSection({ value }) {
       <HeaderSection name='SALES' />
       <div className="col h-full flex gap-6">
         <Link href="/pages/sales/qmp" className='w-full' prefetch={false}>
-          {/* <button className="w-full"> */}
           <TopTitleCard value={`${resultQmp} %`} title='QMP' bg={bgQmp} border={borderQmp} />
-          {/* </button> */}
         </Link>
         <Link href="/pages/sales/monthly" className='w-full' prefetch={false}>
           <TopTitleCard value={`${resultMonthly} %`} title='MONTHLY' bg={bgMonthly} border={borderMonthly} />
