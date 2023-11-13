@@ -11,5 +11,27 @@ export default async function getDataProduction() {
     return data
   } catch (error) {
     console.error(error);
+    return [
+      {
+        PostDate: new Date(),
+        LineType: 'CAM',
+        RataRata: 0,
+      },
+      {
+        PostDate: new Date(),
+        LineType: 'LINE1',
+        RataRata: 0,
+      },
+      {
+        PostDate: new Date(),
+        LineType: 'LINE2',
+        RataRata: 0
+      },
+      {
+        PostDate: new Date(),
+        LineType: 'LINE3',
+        RataRata: 0,
+      },
+    ]
   }
 }
