@@ -43,8 +43,6 @@ export default async function Qmp() {
 
   const bgMain = 'bg-[#9DA5EE]'
   const borderMain = 'border-[#9DA5EE]'
-  const bgComponent = 'bg-[#05A305]'
-  const borderComponent = 'border-[#05A305]'
   return (
     <div className="w-full bg-main-base rounded-[8px] flex flex-col">
       <HeaderSection name="Data Sales tahun 2023" />
@@ -54,6 +52,8 @@ export default async function Qmp() {
       </div>
       <div className="grid grid-cols-4 gap-[30px] p-[15px] w-full h-full">
         {data.map((element) => {
+          const bgComponent = element.percen < 75 ? 'bg-[#FF0000]' : element.percen >= 75 && element.percen < 90 ? "bg-[#FF9900]" : "bg-[#05A305]";
+          const borderComponent = element.percen < 75 ? 'border-[#FF0000]' : element.percen >= 75 && element.percen < 90 ? "border-[#FF9900]" : "border-[#05A305]";
           return (
             <TopTitleCard key={element.bulan} title={element.bulan} value={`${(element.percen).toFixed(2)} %`} bg={bgComponent} border={borderComponent} />
           )
