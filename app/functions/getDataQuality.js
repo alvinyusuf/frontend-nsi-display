@@ -2,7 +2,7 @@ import getPercenQuality from "./getPercenQuality"
 
 export default async function getDataQuality() {
   try {
-    const res = await fetch('http://192.168.10.75:5000/api/quality/report', {next: {revalidate: 3600}})
+    const res = await fetch('http://192.168.10.75:5000/api/quality/report', {next: {revalidate: 0}})
 
     if (!res.ok) {
       throw new Error('failed to fetch')
