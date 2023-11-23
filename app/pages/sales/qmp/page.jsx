@@ -1,7 +1,7 @@
 import React from "react";
 import HeaderSection from "@/app/components/header/sectionHeader";
 import TopTitleCard from "@/app/components/cards/topTitleCard";
-import getDataTarget from "@/app/functions/getDataTarget";
+import getDataTargetQmp from "@/app/functions/getDataTargetQmp";
 
 async function getAktualTahunan() {
   const res = await fetch("http://192.168.10.75:5000/api/sales/get-actual", {
@@ -15,7 +15,7 @@ async function getAktualTahunan() {
   return res.json();
 }
 
-async function getListMonthly() {
+async function getPercen() {
   const res = await fetch("http://192.168.10.75:5000/api/sales/get-percen", {
     next: {
       revalidate: 0,
