@@ -1,7 +1,7 @@
 import React from "react";
 import HeaderSection from "@/app/components/header/sectionHeader";
 import TopTitleCard from "@/app/components/cards/topTitleCard";
-import getDataTarget from "@/app/functions/getDataTarget";
+import getDataTargetQmp from "@/app/functions/getDataTargetQmp";
 
 async function getAktualTahunan() {
   const res = await fetch("http://192.168.10.75:5000/api/sales/get-actual", {
@@ -15,8 +15,8 @@ async function getAktualTahunan() {
   return res.json();
 }
 
-async function getListMonthly() {
-  const res = await fetch("http://192.168.10.75:5000/api/sales/get-actual/detail", {
+async function getPercen() {
+  const res = await fetch("http://192.168.10.75:5000/api/sales/get-percen", {
     next: {
       revalidate: 0,
     },
@@ -28,14 +28,13 @@ async function getListMonthly() {
 }
 
 export default async function Qmp() {
-  const dataApi = await getAktualTahunan()
-  const dataList = await getListMonthly()
-  const dataTarget = await getDataTarget()
-  const lists = dataList.payload.data
+  const dataApi = await getPercen()
+  const target = await getDataTargetQmp()
+  const dataAktual = await getAktualTahunan()
+  const data = dataApi.payload.data
 
-  const data = dataApi.payload.data.totalUSDSales
-  const total = data.toFixed(2)
-  const target = dataTarget.qmp;
+  const dataTahunan = dataAktual.payload.data.totalUSDSales
+  const total = dataTahunan.toFixed(2)
 
   const USDollar = new Intl.NumberFormat("en-US", {
     style: "currency",
@@ -54,9 +53,9 @@ export default async function Qmp() {
         <TopTitleCard title='Aktual Tahunan' value={`${USDollar.format(total)}`} bg={bgMain} border={borderMain} />
       </div>
       <div className="grid grid-cols-4 gap-[30px] p-[15px] w-full h-full">
-        {lists.map((element) => {
+        {data.map((element) => {
           return (
-            <TopTitleCard key={element.bulan} title={element.bulan} value={USDollar.format(element.totalUSDPrice)} bg={bgComponent} border={borderComponent} />
+            <TopTitleCard key={element.bulan} title={element.bulan} value={`${(element.percen).toFixed(2)} %`} bg={bgComponent} border={borderComponent} />
           )
         })}
       </div>

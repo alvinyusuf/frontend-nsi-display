@@ -5,13 +5,13 @@ import HeaderSection from "../header/sectionHeader";
 import TopTitleCard from "../cards/topTitleCard";
 import getDataMonthly from "@/app/functions/getDataMonthly";
 import { useState } from "react";
-import getDataTarget from "@/app/functions/getDataTarget";
+import getDataTargetQmp from "@/app/functions/getDataTargetQmp";
 
 export default function SalesSection({ value }) {
   const { qmp, monthly } = value;
   const [limit, setLimit] = useState(20000000);
   const [dataMonthly, setDataMonthly] = useState(0);
-  getDataTarget().then((data) => setLimit(data.qmp));
+  getDataTargetQmp().then((data) => setLimit(data))
   const resultQmp = ((qmp / limit) * 100).toFixed(2)
   getDataMonthly(monthly).then((data) => setDataMonthly(data));
   const resultMonthly = (dataMonthly).toFixed(2);
