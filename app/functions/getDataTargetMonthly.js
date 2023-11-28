@@ -1,6 +1,6 @@
-export default async function getDataTargetQmp() {
+export default async function getDataTargetMonthly() {
   try {
-    const res = await fetch('http://192.168.10.75:5000/api/target/get-qmp', {next: {revalidate: 0}})
+    const res = await fetch('http://192.168.10.75:5000/api/target/get-monthly', {next: {revalidate: 0}})
 
     if (!res.ok) {
       throw new Error('failed to fetch')
@@ -11,6 +11,6 @@ export default async function getDataTargetQmp() {
     return data
   } catch (error) {
     console.error(error)
-    return 16000000
+    return 1500000
   }
 }
