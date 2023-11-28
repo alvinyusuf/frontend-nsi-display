@@ -1,4 +1,5 @@
 import HeaderSection from "@/app/components/header/sectionHeader";
+import getDataTargetMonthly from "@/app/functions/getDataTargetMonthly";
 import React from "react";
 import ListCustomer from "../components/listCustomer";
 
@@ -16,6 +17,7 @@ async function getDataCustomer() {
 
 export default async function Sales(props) {
   const dataApi = await getDataCustomer();
+  const targetMonthly = await getDataTargetMonthly();
   const data = dataApi.payload.data;
   let totalTarget = 0.0;
   let totalAktual = 0.0;
@@ -57,7 +59,7 @@ export default async function Sales(props) {
           <div className="col h-[100px] flex items-center justify-end gap-10 px-8 mt-[50px]">
             <div className="w-full text-center bg-[#9DA5EE] p-2 text-[40px] rounded">
               <HeaderSection name={"TARGET BY GM"} />
-              $1,500,000,00
+              {USDollar.format(targetMonthly)}
             </div>
             <div className="w-full text-center bg-[#9DA5EE] p-2 text-[40px] rounded">
               <HeaderSection name={"total aktual sales"} />
