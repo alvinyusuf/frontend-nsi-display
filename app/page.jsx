@@ -112,9 +112,9 @@ export default function Home() {
       setQmp(data)
     })
 
-    return () => {
-      socket.off('connection')
-    }
+    // return () => {
+    //   socket.off('connection')
+    // }
   }, [])
 
   const sales = {qmp, monthly}
